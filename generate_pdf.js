@@ -13,11 +13,11 @@ async function captureScreenshots(page) {
   for (const route of routes) {
     const url = `http://localhost:3000${route.path}`;
     console.log(`Visitando: ${url}`);
-    
+
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
     // Esperar um pouco para animações
     await new Promise(r => setTimeout(r, 2000));
-    
+
     await page.evaluate(() => document.documentElement.className = '');
     await new Promise(r => setTimeout(r, 500));
     await page.screenshot({ path: `capture_${route.name}_light.png`, fullPage: true });
@@ -39,12 +39,12 @@ function formatCodeBlocks(codeHTML, title) {
   const lines = codeHTML.split('\n');
   const chunkSize = 35;
   let html = '';
-  
-  for(let i = 0; i < lines.length; i+= chunkSize) {
+
+  for (let i = 0; i < lines.length; i += chunkSize) {
     const chunk = lines.slice(i, i + chunkSize).join('\n');
     html += `
       <div class="page text-left">
-        <h3 class="code-title">Trecho de Código - ${title} (Parte ${Math.floor(i/chunkSize) + 1})</h3>
+        <h3 class="code-title">Trecho de Código - ${title} (Parte ${Math.floor(i / chunkSize) + 1})</h3>
         <pre><code class="hljs">${chunk}</code></pre>
       </div>
     `;
@@ -59,9 +59,9 @@ async function generatePDF() {
   await page.setViewport({ width: 1440, height: 900 });
 
   // await captureScreenshots(page);
-  
+
   console.log('Telas capturadas. Gerando o documento HTML...');
-  
+
   const css = `
     body { font-family: 'Arial', sans-serif; font-size: 14pt; line-height: 1.6; color: #333; margin: 0; padding: 0; }
     .cover { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; }
@@ -88,7 +88,7 @@ async function generatePDF() {
   const analiseCode = formatCodeBlocks(getHighlightedCode('src/app/analise/page.tsx'), 'Análise Financeira (src/app/analise/page.tsx)');
   const graficosCode = formatCodeBlocks(getHighlightedCode('src/app/graficos/page.tsx'), 'Gráficos Avançados (src/app/graficos/page.tsx)');
   const economiaCode = formatCodeBlocks(getHighlightedCode('src/app/economia/page.tsx'), 'Cenário Econômico (src/app/economia/page.tsx)');
-  
+
   const imgDashboardL = `data:image/png;base64,${fs.readFileSync('capture_dashboard_light.png', 'base64')}`;
   const imgDashboardD = `data:image/png;base64,${fs.readFileSync('capture_dashboard_dark.png', 'base64')}`;
   const imgAnaliseL = `data:image/png;base64,${fs.readFileSync('capture_analise_light.png', 'base64')}`;
@@ -244,7 +244,7 @@ async function generatePDF() {
 
   console.log('Conversão HTML montada, processando PDF final...');
   const finalPdfPath = 'C:\\\\Users\\\\caua.lincoln\\\\Downloads\\\\Projeto-Integrador-main\\\\Projeto_Integrador_Refatorado_V2.pdf';
-  
+
   await page.setContent(html);
   await page.pdf({
     path: finalPdfPath,
