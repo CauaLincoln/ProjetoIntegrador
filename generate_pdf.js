@@ -110,7 +110,7 @@ async function generatePDF() {
         <h1>COTAÇÕES DE CÂMBIO EM TEMPO REAL<br>(ARQUITETURA MODERNA COM NEXT.JS)</h1>
         <div class="authors">
           <p>Autores: Cauã Azevedo Lincoln<br>Heitor Israel Vieira de Andrade</p>
-          <p>Professora e orientadora: Ingrid Batista Conceição</p>
+          <p>Professor e orientador: Angelo Luiz da Cruz Oliveira</p>
           <p style="margin-top: 100px; font-size: 14pt;">Universidade Santo Amaro (UNISA)</p>
           <p>2026</p>
         </div>
@@ -121,6 +121,7 @@ async function generatePDF() {
         <p>Este documento apresenta a reformulação estrutural e migração arquitetural de uma aplicação web destinada à visualização em tempo real das cotações de câmbio do dólar e do iene. Diferente da implementação originada em Javascript Vanilla, Html5 e Css3, este novo modelo abraça as tecnologias mais recentes do mercado, destacando o Next.js (com App Router), TypeScript para tipagem forte, Zustand para gestão global de estado e Tailwind CSS para estilizações refinadas e sofisticadas em níveis de produção comercial.</p>
         <p>A aplicação fornece não somente o panorama constante e síncrono da flutuação destas moedas através de Polling seguro em substituição aos Web Workers, como estende profundamente a capacidade analítica da ferramenta, inserindo dashboards de análises probabilísticas e matemáticas nativas (Ema, Sma e Rsi), renderizações aglomeradas em Velas Japonesas (Candlesticks OHLC) e balanços interativos macroeconômicos.</p>
         <p>A principal contribuição da versão 2.0.0 (codinome <i>Modernity</i>) reside em comprovar como a infraestrutura de componentes React bem lapidados eleva exponencialmente a capacidade semântica, o manutenimento de código, a compatibilidade e a experiência fluida ao usuário final, alçando o projeto à maturidade enterprise.</p>
+        <p>O projeto pode ser acessado através do link: https://projeto-integrador-w9eg.vercel.app/</p>
         <p><b>Palavras-chave:</b> Next.js. TypeScript. Tailwind CSS. Cotações. Algoritmos. Dashboard.</p>
       </div>
 
